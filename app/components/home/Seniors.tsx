@@ -18,7 +18,7 @@ interface SeniorsProps {
 }
 
 export default function Seniors({ seniors }: SeniorsProps) {
-  const marqueeRef = useRef<HTMLDivElement>(null);
+  const marqueeRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const isMarqueeInView = useInView(marqueeRef, { once: true, amount: 0.05 });
 
@@ -31,7 +31,7 @@ export default function Seniors({ seniors }: SeniorsProps) {
   const DURATION = 60;
   const isPaused = isHovered || isDragging || !isMarqueeInView;
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);
     setStartX(e.clientX);
     if (trackRef.current) {
@@ -57,12 +57,12 @@ export default function Seniors({ seniors }: SeniorsProps) {
     track.style.animationDelay = `-${offset}s`;
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     setIsDragging(false);
     resumeFromPosition();
   };
 
-  const handleMouseLeave = () => {
+  const handlePointerLeave = () => {
     if (isDragging) {
       setIsDragging(false);
       resumeFromPosition();
@@ -70,7 +70,7 @@ export default function Seniors({ seniors }: SeniorsProps) {
     setIsHovered(false);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handlePointerMove = (e: React.PointerEvent) => {
     if (!isDragging || !trackRef.current) return;
     e.preventDefault();
     const walk = (e.clientX - startX) * 2;
@@ -111,21 +111,23 @@ export default function Seniors({ seniors }: SeniorsProps) {
             </Reveal>
           </div>
         </div>
+
         <section
           ref={marqueeRef}
-          role="marquee"
           aria-label="Interactive internships marquee"
           className={`overflow-hidden relative transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] border-b border-gray-200 dark:border-neutral-800 ${
             isDragging ? "cursor-grabbing" : "cursor-grab"
           } mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] ${isMarqueeInView ? "opacity-100" : "opacity-0"}`}
-          style={{ contentVisibility: "auto", containIntrinsicSize: "0 200px" }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={handleMouseLeave}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onTouchStart={() => setIsHovered(true)}
-          onTouchEnd={() => setIsHovered(false)}
+          style={{
+            contentVisibility: "auto",
+            containIntrinsicSize: "0 200px",
+            touchAction: "pan-y",
+          }}
+          onPointerEnter={() => setIsHovered(true)}
+          onPointerLeave={handlePointerLeave}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+          onPointerMove={handlePointerMove}
         >
           <div
             ref={trackRef}

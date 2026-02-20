@@ -1,0 +1,5 @@
+# This file automatically assigns reviewers for pull requests.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global rule — @elskow will be requested for review on every PR
+* @elskow

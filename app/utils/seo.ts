@@ -83,7 +83,11 @@ export function generateLinks(path = "") {
 export function generatePreconnectLinks() {
   return [
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" as const },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "anonymous" as const,
+    },
     { rel: "dns-prefetch", href: "https://discord.gg" },
     { rel: "dns-prefetch", href: "https://github.com" },
   ];

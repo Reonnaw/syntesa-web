@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "~/hooks/useInView";
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 interface TechSeparatorProps {
   delay?: number;
 }
 
 export default function TechSeparator({ delay = 0 }: TechSeparatorProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const active = isInView || prefersReducedMotion;

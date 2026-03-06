@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { useInView } from "~/hooks/useInView";
 
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 interface BorderDrawProps {
   children: ReactNode;
@@ -23,6 +23,7 @@ export default function BorderDraw({
   as: Tag = "button",
   ...props
 }: BorderDrawProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.5 });
   const [perimeter, setPerimeter] = useState(0);

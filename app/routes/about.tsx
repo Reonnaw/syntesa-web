@@ -3,7 +3,7 @@ import { BsArrowRight } from "react-icons/bs";
 import type { LinksFunction, MetaFunction } from "react-router";
 import Reveal, { StaggerList, StaggerListItem } from "~/components/Reveal";
 import { SEO } from "~/components/SEO";
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 import { generateLinks, generateMeta } from "~/utils/seo";
 
 export const meta: MetaFunction = () =>
@@ -90,6 +90,7 @@ const team = [
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function About() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const breadcrumbs = [
     { name: "Home", path: "" },
     { name: "About", path: "/about" },

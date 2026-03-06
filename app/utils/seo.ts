@@ -71,7 +71,7 @@ export function generateMeta({
 export function generateSecurityMeta() {
   return [
     { name: "referrer", content: "strict-origin-when-cross-origin" },
-    { "http-equiv": "X-Content-Type-Options", content: "nosniff" },
+    { httpEquiv: "X-Content-Type-Options", content: "nosniff" },
   ];
 }
 

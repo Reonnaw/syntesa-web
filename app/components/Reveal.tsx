@@ -10,7 +10,7 @@ import { useInView } from "~/hooks/useInView";
 
 type RevealDirection = "up" | "down" | "left" | "right" | "none";
 
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 interface RevealProps {
   children: ReactNode;
@@ -75,6 +75,7 @@ export default function Reveal({
   clipReveal = false,
   width = "100%",
 }: RevealProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, amount: threshold });
 
@@ -111,6 +112,7 @@ interface LineRevealProps {
 }
 
 export function LineReveal({ className = "", delay = 0, duration = 0.8 }: LineRevealProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const active = isInView || prefersReducedMotion;
@@ -145,6 +147,7 @@ export function StaggerChildren({
   className,
   threshold = 0.1,
 }: StaggerProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: threshold });
   const controls = useAnimation();
@@ -153,7 +156,7 @@ export function StaggerChildren({
     if (isInView || prefersReducedMotion) {
       controls.start("visible");
     }
-  }, [isInView, controls]);
+  }, [isInView, controls, prefersReducedMotion]);
 
   return (
     <motion.div
@@ -190,6 +193,7 @@ export function StaggerItem({
   className,
   clipReveal = false,
 }: StaggerItemProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   return (
     <motion.div
       variants={{
@@ -225,6 +229,7 @@ export function StaggerList({
   threshold = 0.1,
   as = "ul",
 }: StaggerListProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const Component = as === "ul" ? motion.ul : motion.ol;
   const ref = useRef<HTMLUListElement | HTMLOListElement>(null);
   const isInView = useInView(ref, { once: true, amount: threshold });
@@ -234,7 +239,7 @@ export function StaggerList({
     if (isInView || prefersReducedMotion) {
       controls.start("visible");
     }
-  }, [isInView, controls]);
+  }, [isInView, controls, prefersReducedMotion]);
 
   return (
     <Component
@@ -268,6 +273,7 @@ export function StaggerListItem({
   clipReveal = false,
   as = "li",
 }: StaggerListItemProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const Component = as === "li" ? motion.li : motion.div;
 
   return (

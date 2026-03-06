@@ -1,9 +1,8 @@
 import { BsArrowDownRight, BsArrowRight } from "react-icons/bs";
 import GradientOrb from "~/components/ui/GradientOrb";
 import { useAnimatedCounter } from "~/hooks/useAnimatedCounter";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 import type { SocialLink } from "~/types";
-
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
 
 interface HeroProps {
   socialLinks: SocialLink[];
@@ -12,6 +11,7 @@ interface HeroProps {
 const headingLines = ["Software", "Engineering", "Laboratory"];
 
 export default function Hero({ socialLinks }: HeroProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const discordLink = socialLinks.find((link) => link.name === "Discord");
 
   return (

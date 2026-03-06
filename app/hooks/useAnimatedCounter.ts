@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useInView } from "~/hooks/useInView";
 
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 interface UseAnimatedCounterOptions {
   end: number;
@@ -20,6 +20,7 @@ export function useAnimatedCounter({
   suffix = "",
   padDigits = 0,
 }: UseAnimatedCounterOptions) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -70,7 +71,7 @@ export function useAnimatedCounter({
 
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView, end, start, delay, duration, format]);
+  }, [isInView, end, start, delay, duration, format, prefersReducedMotion]);
 
   return { ref, initialDisplay: format(start) };
 }

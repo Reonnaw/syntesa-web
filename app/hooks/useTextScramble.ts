@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useInView } from "~/hooks/useInView";
 
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
 
@@ -18,6 +18,7 @@ export function useTextScramble({
   delay = 0,
   glyphs = GLYPHS,
 }: UseTextScrambleOptions) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   const hasRun = useRef(false);
@@ -60,7 +61,7 @@ export function useTextScramble({
 
     const timeout = setTimeout(scramble, delay);
     return () => clearTimeout(timeout);
-  }, [isInView, scramble, delay]);
+  }, [isInView, scramble, delay, prefersReducedMotion]);
 
   return { ref };
 }

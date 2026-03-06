@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 type Theme = "light" | "dark";
 
@@ -44,6 +44,7 @@ function getClientTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [theme, setThemeState] = useState<Theme>("light");
 
   const applyTheme = useCallback((next: Theme) => {
@@ -86,7 +87,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         );
       });
     },
-    [theme, applyTheme],
+    [theme, applyTheme, prefersReducedMotion],
   );
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import { useCallback, useRef } from "react";
 import ScrambleText from "~/components/ScrambleText";
 import BackgroundGlow from "~/components/ui/BackgroundGlow";
 
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 interface MissionStatementProps {
   text?: string;
@@ -13,6 +13,7 @@ const DEFAULT_TEXT =
   "We believe that great software is built through rigorous research, relentless experimentation, and a commitment to engineering excellence. Every line of code is a step toward the future.";
 
 export default function MissionStatement({ text = DEFAULT_TEXT }: MissionStatementProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const wordSpansRef = useRef<HTMLSpanElement[]>([]);
   const words = text.split(" ");
@@ -36,7 +37,7 @@ export default function MissionStatement({ text = DEFAULT_TEXT }: MissionStateme
         span.style.opacity = String(0.15 + t * 0.85);
       }
     },
-    [words.length],
+    [words.length, prefersReducedMotion],
   );
 
   useMotionValueEvent(scrollYProgress, "change", updateOpacities);

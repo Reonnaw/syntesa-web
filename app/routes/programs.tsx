@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 import type { LinksFunction, MetaFunction } from "react-router";
 import { default as Reveal, StaggerList, StaggerListItem } from "~/components/Reveal";
 import { SEO } from "~/components/SEO";
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 import { generateLinks, generateMeta } from "~/utils/seo";
 
 export const meta: MetaFunction = () =>
@@ -98,6 +98,7 @@ const schedule = [
 ];
 
 export default function Programs() {
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [expandedProgram, setExpandedProgram] = useState<string | null>(programs[0].id);
 
   const breadcrumbs = [

@@ -1,8 +1,10 @@
 import Lenis from "lenis";
 import { useEffect } from "react";
-import { prefersReducedMotion } from "~/utils/prefersReducedMotion";
+import { usePrefersReducedMotion } from "~/hooks/usePrefersReducedMotion";
 
 export function useSmoothScroll() {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   useEffect(() => {
     if (prefersReducedMotion) return;
 
@@ -17,5 +19,5 @@ export function useSmoothScroll() {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [prefersReducedMotion]);
 }

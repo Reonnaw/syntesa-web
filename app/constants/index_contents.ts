@@ -20,6 +20,7 @@ import type { TypeLabSpec } from "~/components/home/Infrastructure";
 import type { GroupName, TypeInterestGroup } from "~/components/home/InterestGroups";
 import type { TypePartner } from "~/components/home/Partners";
 import type { TypeSenior } from "~/components/home/Seniors";
+import type { TypeMember } from "~/components/memberLists/Member";
 
 export const interestGroups: TypeInterestGroup[] = [
   {
@@ -174,5 +175,164 @@ export const seniors: TypeSenior[] = [
     logo: dotLogo,
     prodi: "Teknik Informatika",
     batch: "2023",
+  },
+];
+
+export const members: TypeMember[] = [
+  {
+    name: "Muhammad Istiqlal",
+    role: "Cloud Infrastructure Lead",
+    prodi: "Teknik Informatika",
+    batch: "2022",
+  },
+  {
+    name: "Mohammad Ariffansyah",
+    role: "Software Development Lead",
+    prodi: "Teknik Informatika",
+    batch: "2024",
+  },
+  {
+    name: "Helmy Luqmanulhakim",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2022",
+  },
+  {
+    name: "Ahmd Mufahras Li Alfazh Assardew",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2022",
+  },
+  {
+    name: "Yunus Dhanzky Handitra",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2022",
+  },
+  {
+    name: "Vincent Louis Fernando",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2022",
+  },
+  {
+    name: "Dyan Dananjaya Tejo Pamungkas",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2022",
+  },
+  {
+    name: "Rayhan Hendra Atmadja",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2023",
+  },
+  {
+    name: "Cornelius Louis Nathan",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2023",
+  },
+  {
+    name: "Muhammad Nur Azhar Dhiyaulhaq",
+    role: "Cloud Infrastructure Member",
+    prodi: "Teknik Informatika",
+    batch: "2023",
+  },
+  {
+    name: "Afrizal Luthfi Eka Arnatha",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2023",
+  },
+  {
+    name: "Fakthur Rozaq",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2024",
+  },
+  {
+    name: "I Made Nandana Devadatta Giri",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2024",
+  },
+  {
+    name: "Amira Najihah Fadri Putri",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2024",
+  },
+  {
+    name: "Sulthania Auliya Afandi",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2024",
+  },
+  {
+    name: "Muhromin",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Johana Putri Adelia",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Nailah Salsabila Ramadhani Kusnadi",
+    role: "Cloud Infrastructure and Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Aisyah Miyuki Anastasya Syafila",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Krishna Surya Dewata",
+    role: "Cloud Infrastructure Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Amelia Prasa Agustin",
+    role: "Cloud Infrastructure Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Rosa Anjelita",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Ardiansyah Dhevashidqi Madany",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Ahmad Jouwdad Aufa Robbani",
+    role: "Software Development Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Debora Angelika Purba",
+    role: "Cloud Infrastructure Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
+  },
+  {
+    name: "Panji Rafi Musyafah",
+    role: "Cloud Infrastructure Member",
+    prodi: "Teknik Informatika",
+    batch: "2025",
   },
 ];

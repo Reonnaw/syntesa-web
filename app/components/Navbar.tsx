@@ -16,6 +16,7 @@ const navItems = [
   { to: "/", label: "Home", index: "01" },
   { to: "/programs", label: "Programs", index: "02" },
   { to: "/about", label: "About", index: "03" },
+  { to: "/members", label: "Members", index: "04" },
 ];
 
 export default function Navbar({ socialLinks }: NavbarProps) {
@@ -172,6 +173,14 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                       className="text-sm font-medium text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-apple-blue-400 transition-colors"
                     >
                       About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/members"
+                      className="text-sm font-medium text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-apple-blue-400 transition-colors"
+                    >
+                      Members
                     </Link>
                   </li>
                 </ul>

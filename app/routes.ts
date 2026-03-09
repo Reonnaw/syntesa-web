@@ -6,5 +6,6 @@ export default [
     index("routes/_index.tsx"),
     route("programs", "routes/programs.tsx"),
     route("about", "routes/about.tsx"),
+    route("members", "routes/members.tsx"),
   ]),
 ] satisfies RouteConfig;

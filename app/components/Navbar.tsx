@@ -177,10 +177,10 @@ export default function Navbar({ socialLinks }: NavbarProps) {
                   </li>
                   <li>
                     <Link
-                      to="/members"
+                      to="/member"
                       className="text-sm font-medium text-gray-600 dark:text-neutral-400 hover:text-gray-900 dark:hover:text-apple-blue-400 transition-colors"
                     >
-                      Members
+                      Member
                     </Link>
                   </li>
                 </ul>

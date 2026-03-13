@@ -16,7 +16,7 @@ const navItems = [
   { to: "/", label: "Home", index: "01" },
   { to: "/programs", label: "Programs", index: "02" },
   { to: "/about", label: "About", index: "03" },
-  { to: "/members", label: "Members", index: "04" },
+  { to: "/member", label: "Members", index: "04" },
 ];
 
 export default function Navbar({ socialLinks }: NavbarProps) {
